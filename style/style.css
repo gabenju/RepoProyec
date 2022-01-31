@@ -106,7 +106,7 @@ aside {
         "header header header"
         "sec1 form  sec2"
         "footer footer footer";
-    grid-template-rows: 200px 70vh 200px; 
+    grid-template-rows: 180px 2fr 25px; 
     grid-template-columns: 25% 50% 25%;
     grid-column-gap: 5px;
     grid-row-gap: 10px;
