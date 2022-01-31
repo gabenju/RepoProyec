@@ -13,10 +13,25 @@ body{
 h1{ 
     color: lightgray;
 }
+/* Boton oculto para Responsive*/
+#btn-menu{
+    display: none;
+}
+header label{
+    display: none;
+    width: 30px;
+    height: 30px;
+    margin: 30px;
+    padding: 10px;
+
+}
+header label:hover {
+    cursor: pointer;
+    background: rgb(87, 80, 67);
+}
 /* Responsive <------Q(-_-Q)*/
 /* DESKTOP */
 @media (min-width: 1024px) {
-
 /* Menu<------Q(-_-Q)*/
 .menu {
     display: flex;
@@ -36,7 +51,6 @@ h1{
     display: flex;
     justify-content: flex-end;
     margin-right: 40px;
-    margin-top: 10px;
     animation-name: mueve;
     animation-iteration-count: 1;
     animation-duration: 5s;
@@ -137,6 +151,34 @@ section#sec2{
 
 /* TABLET */
 @media (min-width: 481px) and (max-width: 1023px){
+
+    header label{
+        display: block;
+    }
+    .menu{
+        position: absolute;
+        background: rgb(137, 127, 106);
+        flex-direction: column;
+        width: 15%;
+        margin-left: -15%;
+        transition: all 1s;
+    }
+    .menu a:hover{
+        background-image: linear-gradient(to left, rgb(137, 127, 106), lightgrey);
+    }
+    #btn-menu:checked ~ .menu{
+        margin: 0;
+    }
+    .logo{
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 40px;
+        animation-name: mueve;
+        animation-iteration-count: 1;
+        animation-duration: 5s;
+        animation-delay: 0s;
+    }
+
     #grid {
         display: grid;
         grid-template-areas:
@@ -152,7 +194,6 @@ section#sec2{
     }
     header{
         grid-area: header;
-        height: 200px;
         background-color: rgb(137, 127, 106);
         font-weight: 1000;
     }
