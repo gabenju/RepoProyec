@@ -19,10 +19,12 @@ h1{
 }
 header label{
     display: none;
-    width: 30px;
-    height: 30px;
-    margin: 30px;
-    padding: 10px;
+    width: 40px;
+    height: 40px;
+    margin-top: -140px;
+    margin-left: 5px;
+
+
 
 }
 header label:hover {
@@ -172,11 +174,17 @@ section#sec2{
     .logo{
         display: flex;
         justify-content: flex-end;
-        margin-right: 40px;
+        margin-right: 10px;
         animation-name: mueve;
         animation-iteration-count: 1;
         animation-duration: 5s;
         animation-delay: 0s;
+    }
+    @keyframes mueve {
+        from {
+            transform: translateY(-150px)}
+        to{
+            transform: translateY(0);}  
     }
 
     #grid {
@@ -195,7 +203,7 @@ section#sec2{
     header{
         grid-area: header;
         background-color: rgb(137, 127, 106);
-        font-weight: 1000;
+
     }
     header img{
         margin-left: 20px;
