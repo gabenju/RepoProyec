@@ -18,28 +18,37 @@ h1{
 @media (min-width: 1024px) {
 
 /* Menu<------Q(-_-Q)*/
-header{
-    height: 200px;
-}
-header img{
-    margin-left: 20px;
-    margin-top: 20px;
-}
-nav {
+.menu {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
-    margin-right: 20px;
+    margin-left: 10px;
 }
-nav a{
+.menu a{
     text-decoration: none;
     color: black;
     padding: 10px;
 }
 
-nav a:hover{
+.menu a:hover{
     background-image: linear-gradient(to left, rgb(137, 127, 106), lightgrey);
 }
+.logo{
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+    margin-top: 10px;
+    animation-name: mueve;
+    animation-iteration-count: 1;
+    animation-duration: 5s;
+    animation-delay: 0s;
+}
+@keyframes mueve {
+    from {
+        transform: translateY(-150px)}
+    to{
+        transform: translateY(0);}  
+}
+
 /* Index Grid <------Q(-_-Q)*/
 #grid {
     display: grid;
@@ -48,10 +57,10 @@ nav a:hover{
         "nav foto texto texto"
         "nav fotos fotos fotos"
         "footer footer footer footer";
-    grid-template-rows: 190px 1fr 25vh 30px; 
-    grid-template-columns: 20% 50% 30%;
-    grid-column-gap: 5px;
-    grid-row-gap: 10px;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: 180px 2fr 1fr 25px;
+        grid-column-gap: 5px;
+        grid-row-gap: 5px;
 }
 header {
     grid-area: header;
