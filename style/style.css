@@ -35,7 +35,7 @@ h1{
 .logo{
     display: flex;
     justify-content: flex-end;
-    margin-right: 10px;
+    margin-right: 40px;
     margin-top: 10px;
     animation-name: mueve;
     animation-iteration-count: 1;
@@ -48,19 +48,18 @@ h1{
     to{
         transform: translateY(0);}  
 }
-
 /* Index Grid <------Q(-_-Q)*/
 #grid {
     display: grid;
     grid-template-areas:
         "header header header header"
         "nav foto texto texto"
-        "nav fotos fotos fotos"
+        "fotos fotos fotos fotos"
         "footer footer footer footer";
         grid-template-columns: 1fr 2fr 1fr;
         grid-template-rows: 180px 2fr 1fr 25px;
-        grid-column-gap: 5px;
-        grid-row-gap: 5px;
+        grid-column-gap: 15px;
+        grid-row-gap: 15px;
 }
 header {
     grid-area: header;
@@ -69,31 +68,33 @@ header {
 }
 footer {
     grid-area: footer;
-        background-color: black;
-        color: white;
-        font-family: garamond;
-        display: flex;
-        justify-content: center;
-        margin-bottom: 0vh;
+    background-color: rgb(137, 127, 106);
+    color: lightgray;
+    display: flex;
+    justify-content: center;
 }
 
 section#foto {
+
     grid-area: foto; 
-    margin-top: 10px;
+    
 }
 section#fotos {
-    grid-area: fotos;     
+    grid-area: fotos;  
+    display: flex;
+    justify-content: space-around;   
+
 }
 nav#titulos {
     grid-area: nav;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     padding: 50px;
+    background-image: url(/assets/img/steelframing.jpg);
+
 }
 aside {
     grid-area: texto;
-    margin-top: 10px;
-    margin-left: 35px;
     padding: 40px;
     background-image: url(/assets/img/steelfram.jpg);    
 }
