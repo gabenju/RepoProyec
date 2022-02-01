@@ -23,9 +23,6 @@ header label{
     height: 40px;
     margin-top: -140px;
     margin-left: 5px;
-
-
-
 }
 header label:hover {
     cursor: pointer;
@@ -91,9 +88,9 @@ footer {
 }
 
 section#foto {
-
-    grid-area: foto; 
-    
+    grid-area: foto;
+    display: flex;
+    justify-content: center; 
 }
 section#fotos {
     grid-area: fotos;  
@@ -190,13 +187,12 @@ section#sec2{
     #grid {
         display: grid;
         grid-template-areas:
-            "header"
-            "nav"
-            "foto"
-            "fotos"
-            "footer";
-        grid-template-rows: 190px; 
-        grid-template-columns: 100%;
+            "header header"
+            "nav fotos"
+            "aside fotos"
+            "footer footer";
+        grid-template-rows: 180px 1fr 1fr 25px; 
+        grid-template-columns: 50% 50%;
         grid-column-gap: 5px;
         grid-row-gap: 10px;
     }
@@ -209,45 +205,35 @@ section#sec2{
         margin-left: 20px;
         margin-top: 20px;
     }
-    nav {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        margin-right: 20px;
-    }
-    nav a{
-        text-decoration: none;
-        color: black;
-        padding: 10px;
-    }
+
     section#foto {
         grid-area: foto; 
         display: none;
     }
     section#fotos {
-        grid-area: fotos;     
+        grid-area: fotos;  
+        margin-top: 20px;   
     }
     nav#titulos {
         grid-area: nav;
         display: flex;
-        flex-direction: column-reverse;
+        flex-direction: column;
+        justify-content: center;
         margin-left: 20px;
-        padding 10px;
+        margin-top: 20px;
+        padding: 10px;
     }
     aside {
-        grid-area: nav;
-        margin-top: 70px;
+        grid-area: aside;
         margin-left: 35px;
 
     }
     footer {
         grid-area: footer;
-            background-color: black;
-            color: white;
-            font-family: garamond;
-            display: flex;
-            justify-content: center;
-            margin-bottom: 0vh;
+        background-color: rgb(137, 127, 106);
+        color: lightgray;
+        display: flex;
+        justify-content: center;
     }
 /* Contactanos Grid <------Q(-_-Q)*/
 #gridcont {
@@ -256,7 +242,7 @@ section#sec2{
         "header header header"
         "sec1 form  sec2"
         "footer footer footer";
-    grid-template-rows: 200px 70vh 200px; 
+    grid-template-rows: 180px 1fr 25px; 
     grid-template-columns: 25% 50% 25%;
     grid-column-gap: 5px;
     grid-row-gap: 10px;
@@ -264,7 +250,6 @@ section#sec2{
 }
 header{
     grid-area: header;
-    height: 200px;
     background-color: rgb(137, 127, 106);
     font-weight: 1000;
 }
@@ -272,13 +257,12 @@ header img{
     margin-left: 20px;
     margin-top: 20px;
 }
-nav {
+.menu {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
+    flex-direction: column;
     margin-right: 20px;
 }
-nav a{
+.menu a{
     text-decoration: none;
     color: black;
     padding: 10px;
@@ -289,6 +273,7 @@ main{
     width: 700px;
     height: 600px;
     padding: 100px;
+    margin-bottom: 10px;
     background-color: rgb(137, 127, 106);
 }
 p{
@@ -298,6 +283,7 @@ section#sec1{
     grid-area: sec1;
     display: flex;
     flex-direction: column;   
+    display: none;
 }
 section#sec2{
     grid-area: sec2;
@@ -308,84 +294,93 @@ section#sec2{
 
 /* SMARTPHONE */
 @media (max-width: 480px){
+
+    header label{
+        display: block;
+    }
+    .menu{
+        position: absolute;
+        background: rgb(137, 127, 106);
+        flex-direction: column;
+        width: 30%;
+        margin-left: -30%;
+        transition: all 1s;
+    }
+
+    #btn-menu:checked ~ .menu{
+        margin: 0;
+    }
+    .logo{
+        display: flex;
+        justify-content: flex-end;
+        margin-left: 830px;
+        animation-name: mueve;
+        animation-iteration-count: 1;
+        animation-duration: 5s;
+        animation-delay: 0s;
+    }
+    @keyframes mueve {
+        from {
+            transform: translateY(-150px)}
+        to{
+            transform: translateY(0);}  
+    }
+
+
     #grid {
         display: grid;
         grid-template-areas:
-            "header"
-            "nav"
-            "foto"
-            "fotos"
-            "footer";
-        grid-template-rows: 190px; 
+        "header"
+        "nav"
+        "fotos"
+        "footer";
+        grid-template-rows: 180px 1fr 2fr 25px; 
         grid-template-columns: 100%;
         grid-column-gap: 5px;
         grid-row-gap: 10px;
     }
     header{
         grid-area: header;
-        height: 200px;
         background-color: rgb(137, 127, 106);
-        font-weight: 1000;
+        font-weight: 800;
     }
-    header img{
-        margin-left: 20px;
-        margin-top: 20px;
-    }
-    nav {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        margin-right: 20px;
-    }
-    nav a{
-        text-decoration: none;
-        color: black;
-        padding: 10px;
-    }
+
     section#foto{
         grid-area: foto;
         display: none; 
     }
     section#fotos {
-        grid-area: fotos;     
+        grid-area: fotos;    
     }
     nav#titulos {
         grid-area: nav;
-        display: flex;
-        flex-direction: column-reverse;
-        margin-left: 20px;
     }
     aside {
         grid-area: nav;
-        margin-top: 70px;
-        margin-left: 35px;
-
+        margin-top: 150px;
     }
     footer {
         grid-area: footer;
-            background-color: black;
-            color: white;
-            font-family: garamond;
-            display: flex;
-            justify-content: center;
-            margin-bottom: 0vh;
+        background-color: rgb(137, 127, 106);
+        color: lightgray;
+        display: flex;
+        justify-content: center;     
     }
 /* Contactanos Grid <------Q(-_-Q)*/
 #gridcont {
     display: grid;
     grid-template-areas:
-        "header header header"
-        "sec1 form  sec2"
-        "footer footer footer";
-    grid-template-rows: 200px 70vh 200px; 
-    grid-template-columns: 25% 50% 25%;
+        "header"
+        "form"
+        "footer";
+    grid-template-rows: 180px 1fr 25px; 
+    grid-template-columns: 100%;
     grid-column-gap: 5px;
     grid-row-gap: 10px;
     
 }
 header{
     grid-area: header;
-    height: 200px;
     background-color: rgb(137, 127, 106);
     font-weight: 1000;
 }
@@ -393,27 +388,26 @@ header img{
     margin-left: 20px;
     margin-top: 20px;
 }
-nav {
+.menu {
     display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
     margin-right: 20px;
 }
-nav a{
+.menu a{
     text-decoration: none;
     color: black;
     padding: 10px;
 }
 main{
     grid-area: form;
-    justify-self: center;
-    width: 700px;
-    height: 600px;
-    padding: 100px;
+    width: 350px;
+    height: 700px;
+    padding: 5px;
+    margin: 5px;
     background-color: rgb(137, 127, 106);
 }
 p{
-    padding: 10px;
+    width: 300px;
+    padding: 5px;
 }
 section#sec1{
     grid-area: sec1;
@@ -422,7 +416,11 @@ section#sec1{
 section#sec2{
     grid-area: sec2;
     display: none 
-}  
+} 
+footer {
+    grid-area: footer;
+
+} 
 }
 
 
